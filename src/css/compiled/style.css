@@ -1,0 +1,152 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.rotate {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: #b60f08;
+}
+
+.rotate span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Myriad Pro', Arial, sans-serif;
+  transform: translate(-50%, -50%);
+}
+
+.red {
+  height: 100%;
+}
+
+.red .frame-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: #b60f08;
+}
+
+.red .frame-1 .logo {
+  padding-bottom: 8%;
+  width: 82%;
+}
+
+.red .frame-1 .logo img {
+  width: 100%;
+}
+
+.red .frame-1 .hero {
+  width: 85%;
+}
+
+.red .frame-1 .hero img {
+  width: 100%;
+}
+
+.red .frame-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: #b60f08;
+  opacity: 0;
+  animation-name: show;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+.red .frame-2 .hero {
+  width: 78%;
+}
+
+.red .frame-2 .hero img {
+  width: 100%;
+}
+
+.red .frame-2 .btn {
+  padding-top: 5%;
+  padding-bottom: 3.5%;
+  width: 80%;
+  border: 1px solid #ecb9c6;
+  border-radius: 5px;
+  background: linear-gradient(to bottom, #f5dde3 0%, #ecb9c6 100%);
+  box-shadow: inset 0 1px 1px 1px #faedf1;
+  text-align: center;
+}
+
+.red .frame-2 .btn img {
+  width: 80%;
+}
+
+.red .disclaimer {
+  width: 93%;
+}
+
+.red .disclaimer img {
+  width: 100%;
+}
+
+.red .lipstick {
+  padding-top: 10%;
+}
+
+.red .lipstick picture img {
+  width: 100%;
+}
+
+@media screen and (min-aspect-ratio: 12 / 9) {
+  .rotate {
+    display: block;
+  }
+  .red {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .red .frame-1 .hero {
+    width: 50%;
+  }
+  .red .frame-2 .hero {
+    width: 50%;
+  }
+  .red .frame-2 .btn {
+    width: 50%;
+  }
+}
