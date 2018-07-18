@@ -1,3 +1,7 @@
+/* @import "_swiper"; */
+
+/* @import "_font"; */
+
 *,
 *::after,
 *::before {
@@ -15,6 +19,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -130,10 +135,11 @@ body {
   width: 100%;
 }
 
-@media screen and (min-aspect-ratio: 12 / 9) {
+@media screen and (min-aspect-ratio: 12/9) {
   .rotate {
     display: block;
   }
+
   .red {
     display: none;
   }
@@ -143,9 +149,11 @@ body {
   .red .frame-1 .hero {
     width: 50%;
   }
+
   .red .frame-2 .hero {
     width: 50%;
   }
+
   .red .frame-2 .btn {
     width: 50%;
   }

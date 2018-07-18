@@ -3,7 +3,6 @@ const browserSync = require('browser-sync');
 const del = require('del');
 const rename = require('gulp-rename');
 
-const sass = require('gulp-sass');
 const stylefmt = require('gulp-stylefmt');
 const stylelint = require('stylelint');
 
@@ -49,20 +48,23 @@ gulp.task('default', ['pretty', 'scripts', 'css', 'images-min', 'fonts', 'watch'
 });
 
 gulp.task('stylefmt', function () {
-  return gulp.src('src/css/style.scss')
+  return gulp.src('src/css/style.css')
     .pipe(stylefmt())
     .pipe(gulp.dest('src/css'));
 });
 
 gulp.task('css', ['stylefmt'], function () {
-  return gulp.src('./src/css/style.scss')
-    .pipe(sass({outputStyle: 'expanded'}))
+  return gulp.src('./src/css/style.css')
     .pipe(postcss([
+      require('postcss-partial-import'),
+      require('postcss-simple-vars'),
+      require('postcss-nested'),
       atImport(),
       mqpacker(),
       combineDuplicates(),
       discardDuplicates()
     ]))
+    .pipe(stylefmt())
     .pipe(gulp.dest('./src/css/compiled'))
     .pipe(postcss([
       stylelint(),
@@ -123,7 +125,7 @@ gulp.task('images-min', ['images-clean'], function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['src/css/**/*.scss'], ['css']);
+  gulp.watch(['src/css/**/*.css'], ['css']);
   gulp.watch(['src/js/**/*.js'], ['scripts']);
   gulp.watch(['src/pug/**/*.pug'], ['pretty']);
   gulp.watch(['src/img/*'], ['images-min']);

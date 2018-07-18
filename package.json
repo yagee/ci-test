@@ -16,7 +16,6 @@
     "gulp-postcss": "^7.0.0",
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
     "gulp-stylefmt": "^1.1.0",
     "gulp-typograf": "^3.0.0",
     "gulp-uglify": "^3.0.0",
@@ -24,7 +23,11 @@
     "postcss-combine-duplicated-selectors": "^2.4.2",
     "postcss-discard-duplicates": "^2.1.0",
     "postcss-import": "^10.0.0",
+    "postcss-nested": "^3.0.0",
     "postcss-normalize": "^4.0.0",
+    "postcss-partial-import": "^4.1.0",
+    "postcss-simple-vars": "^4.1.0",
+    "postcss-svg": "^2.4.0",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0"
   }
