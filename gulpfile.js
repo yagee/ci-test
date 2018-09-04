@@ -61,7 +61,7 @@ gulp.task('css', ['stylefmt'], function () {
       require('postcss-nested-ancestors'),
       require('postcss-nested'),
       atImport(),
-      mqpacker(),
+      mqpacker({sort: true}),
       combineDuplicates(),
       discardDuplicates()
     ]))
