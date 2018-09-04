@@ -58,6 +58,7 @@ gulp.task('css', ['stylefmt'], function () {
     .pipe(postcss([
       require('postcss-partial-import'),
       require('postcss-simple-vars'),
+      require('postcss-nested-ancestors'),
       require('postcss-nested'),
       atImport(),
       mqpacker(),
