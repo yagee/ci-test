@@ -60,6 +60,7 @@ gulp.task('css', ['stylefmt'], function () {
       require('postcss-simple-vars'),
       require('postcss-nested-ancestors'),
       require('postcss-nested'),
+      require('postcss-font-display')({ display: 'swap', replace: false }),
       atImport(),
       mqpacker({sort: true}),
       combineDuplicates(),
