@@ -70,6 +70,7 @@ gulp.task('css', ['stylefmt'], function () {
     .pipe(postcss([
       stylelint(),
       pNormalize({forceImport: true}),
+      require('postcss-colormin'),
       messages(),
       autoprefixer(),
       cssnano()
