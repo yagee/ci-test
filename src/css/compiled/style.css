@@ -135,16 +135,6 @@ body {
   width: 100%;
 }
 
-@media screen and (min-aspect-ratio: 12/9) {
-  .rotate {
-    display: block;
-  }
-
-  .red {
-    display: none;
-  }
-}
-
 @media (min-width: 768px) {
   .red .frame-1 .hero {
     width: 50%;
@@ -156,5 +146,15 @@ body {
 
   .red .frame-2 .btn {
     width: 50%;
+  }
+}
+
+@media screen and (min-aspect-ratio: 12/9) {
+  .rotate {
+    display: block;
+  }
+
+  .red {
+    display: none;
   }
 }
