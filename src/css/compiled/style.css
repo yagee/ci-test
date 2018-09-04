@@ -44,6 +44,25 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.button {
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: black;
+}
+
+.button--text {
+  color: white;
+}
+
+.button.button__white {
+  background-color: white;
+}
+
+.button.button__white .button--text {
+  color: black;
+}
+
 .red {
   height: 100%;
 }

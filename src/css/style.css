@@ -48,6 +48,25 @@ body {
   }
 }
 
+.button {
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: black;
+
+  &--text {
+    color: white;
+  }
+
+  &&__white {
+    background-color: white;
+
+    ^&--text {
+      color: black;
+    }
+  }
+}
+
 .red {
   height: 100%;
 
