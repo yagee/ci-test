@@ -5,11 +5,10 @@ html(lang="ru")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(name="format-detection", content="telephone=no")
-    meta(http-equiv="X-UA-Compatible" content="ie=edge")
-    if meta_description
-      meta(name="description", content="!{meta_description}")
     if title
       title !{title}
+    if meta_description
+      meta(name="description", content="!{meta_description}")
     link(rel="stylesheet" href="css/style.min.css")
     //- script.
       console.log('test');
