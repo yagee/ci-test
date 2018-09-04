@@ -1,4 +1,7 @@
 {
+  "plugins": [
+    "stylelint-scss"
+  ],
   "extends": "stylelint-config-standard",
   "rules": {
     "media-feature-name-no-unknown": [true, {
@@ -11,7 +14,9 @@
     "no-unknown-animations": true,
     "value-no-vendor-prefix": true,
     "property-no-vendor-prefix": true,
+    "declaration-no-important": true,
     "selector-max-id": 0,
+    "selector-no-qualifying-type": true,
     "media-feature-name-no-vendor-prefix": true,
     "at-rule-no-vendor-prefix": true,
     "font-family-name-quotes": "always-where-recommended",
@@ -40,8 +45,14 @@
     "max-line-length": [160,
       "ignorePattern": ["/^@media\\s+/"]
     ],
-    "at-rule-no-unknown": [true,
-      "ignoreAtRules": ["each"]
-    ]
+    "at-rule-no-unknown": [ true, {
+      "ignoreAtRules": [
+        "mixin",
+        "content",
+        "include",
+        "extends",
+        "ignores"
+      ]
+    }],
   }
 }
