@@ -110,7 +110,7 @@ body {
   width: 80%;
   border: 1px solid #ecb9c6;
   border-radius: 5px;
-  background: linear-gradient(to bottom, #f5dde3 0%, #ecb9c6 100%);
+  background: linear-gradient(to bottom, hsl(345, 54.55%, 91.37%), hsl(345.01, 54.69%, 90.99%) 6.27%, hsl(345.03, 54.92%, 90.35%) 11.76%, hsl(345.03, 55.21%, 89.49%) 16.9%, hsl(345.02, 55.54%, 88.48%) 22.16%, hsl(344.99, 55.89%, 87.37%) 27.99%, hsl(344.94, 56.23%, 86.22%) 34.82%, hsl(344.88, 56.56%, 85.11%) 43.13%, hsl(344.82, 56.85%, 84.11%) 53.34%, hsl(344.76, 57.09%, 83.3%) 65.93%, hsl(344.72, 57.25%, 82.75%) 81.33%, hsl(344.71, 57.3%, 82.55%));
   box-shadow: inset 0 1px 1px 1px #faedf1;
   text-align: center;
 }

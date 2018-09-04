@@ -45,7 +45,7 @@
     "media-feature-range-operator-space-before": "always",
     "comment-whitespace-inside": "always",
     "indentation": 2,
-    "max-line-length": [160,
+    "max-line-length": [880,
       "ignorePattern": ["/^@media\\s+/"]
     ],
     "at-rule-no-unknown": [ true, {

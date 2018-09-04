@@ -63,7 +63,8 @@ gulp.task('css', ['stylefmt'], function () {
       atImport(),
       mqpacker({sort: true}),
       combineDuplicates(),
-      discardDuplicates()
+      discardDuplicates(),
+      require('postcss-easing-gradients'),
     ]))
     .pipe(stylefmt())
     .pipe(gulp.dest('./src/css/compiled'))
