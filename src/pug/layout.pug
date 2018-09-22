@@ -1,4 +1,5 @@
 include variables.pug
+block local_vars
 doctype html
 html(lang="ru")
   head
@@ -6,7 +7,7 @@ html(lang="ru")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(name="format-detection", content="telephone=no")
     if title
-      title !{title}
+      title Banner - !{title}
     if meta_description
       meta(name="description", content="!{meta_description}")
     link(rel="stylesheet" href="css/style.min.css")

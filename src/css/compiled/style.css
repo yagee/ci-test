@@ -10,9 +10,9 @@
 
 html,
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
 @keyframes show {
@@ -26,8 +26,8 @@ body {
 }
 
 .rotate {
-  position: absolute;
   display: none;
+  position: absolute;
   width: 100%;
   height: 100%;
   background: #b60f08;
@@ -37,18 +37,18 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  font-family: 'Myriad Pro', Arial, sans-serif;
   transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: 'Myriad Pro', Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
 }
 
 .button {
-  text-align: center;
   padding: 10px;
   border-radius: 10px;
   background-color: black;
+  text-align: center;
 }
 
 .button--text {
@@ -68,10 +68,10 @@ body {
 }
 
 .red .frame-1 {
+  display: flex;
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -81,8 +81,8 @@ body {
 }
 
 .red .frame-1 .logo {
-  padding-bottom: 8%;
   width: 82%;
+  padding-bottom: 8%;
 }
 
 .red .frame-1 .logo img {
@@ -98,21 +98,21 @@ body {
 }
 
 .red .frame-2 {
+  display: flex;
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 100%;
   background-color: #b60f08;
-  opacity: 0;
   animation-name: show;
   animation-duration: 2s;
-  animation-delay: 2s;
   animation-fill-mode: forwards;
+  animation-delay: 2s;
+  opacity: 0;
 }
 
 .red .frame-2 .hero {
@@ -124,9 +124,9 @@ body {
 }
 
 .red .frame-2 .btn {
+  width: 80%;
   padding-top: 5%;
   padding-bottom: 3.5%;
-  width: 80%;
   border: 1px solid #ecb9c6;
   border-radius: 5px;
   background: linear-gradient(to bottom, hsl(345, 54.55%, 91.37%), hsl(345.01, 54.69%, 90.99%) 6.27%, hsl(345.03, 54.92%, 90.35%) 11.76%, hsl(345.03, 55.21%, 89.49%) 16.9%, hsl(345.02, 55.54%, 88.48%) 22.16%, hsl(344.99, 55.89%, 87.37%) 27.99%, hsl(344.94, 56.23%, 86.22%) 34.82%, hsl(344.88, 56.56%, 85.11%) 43.13%, hsl(344.82, 56.85%, 84.11%) 53.34%, hsl(344.76, 57.09%, 83.3%) 65.93%, hsl(344.72, 57.25%, 82.75%) 81.33%, hsl(344.71, 57.3%, 82.55%));
@@ -152,6 +152,14 @@ body {
 
 .red .lipstick picture img {
   width: 100%;
+}
+
+*::after {
+  content: '';
+}
+
+*::before {
+  content: '';
 }
 
 @media (min-width: 768px) {

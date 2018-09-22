@@ -3,19 +3,9 @@ const del = require('del');
 const browserSync = require('browser-sync');
 const rename = require('gulp-rename');
 
-const stylefmt = require('gulp-stylefmt');
-const stylelint = require('stylelint');
-
 // postcss
 const postcss = require('gulp-postcss');
-const atImport = require('postcss-import');
-const autoprefixer = require('autoprefixer');
 const mqpacker = require('css-mqpacker');
-const messages = require('postcss-browser-reporter');
-const cssnano = require('cssnano');
-const combineDuplicates = require('postcss-combine-duplicated-selectors');
-const discardDuplicates = require('postcss-discard-duplicates');
-const pNormalize = require('postcss-normalize');
 
 const imagemin = require('gulp-imagemin');
 
@@ -24,6 +14,8 @@ const prettify = require('gulp-html-prettify');
 const typograf = require('gulp-typograf');
 
 const uglify = require('gulp-uglify');
+
+const cssbeautify = require('gulp-cssbeautify');
 
 gulp.task('scripts', function() {
   return gulp.src(['./src/js/*.js'])
@@ -49,33 +41,60 @@ gulp.task('default', ['pretty', 'scripts', 'css', 'images-min', 'fonts', 'watch'
 
 gulp.task('stylefmt', function () {
   return gulp.src('src/css/style.css')
-    .pipe(stylefmt())
+    .pipe(cssbeautify({
+        indent: '  ',
+        // openbrace: 'separate-line',
+        // autosemicolon: true
+    }))
+    .pipe(postcss([
+      require('stylefmt'),
+      require('postcss-gradientfixer'),
+      require('postcss-pseudo-content-insert'),
+      require('postcss-pseudo-element-cases'),
+      require('postcss-pseudo-element-colons'),
+      require('postcss-unprefix'), // косяк с before
+      // require('postcss-default-unit'),
+      require('css-declaration-sorter')({order: 'smacss'}),
+    ]))
     .pipe(gulp.dest('src/css'));
 });
 
 gulp.task('css', ['stylefmt'], function () {
   return gulp.src('./src/css/style.css')
     .pipe(postcss([
+      require('postcss-percentage'),
+      require('postcss-focus'),
+      require('postcss-randomcolor/lib'),
       require('postcss-partial-import'),
+      require('postcss-import'),
+      require('postcss-center'),
+      require('css-declaration-sorter')({order: 'smacss'}),
       require('postcss-simple-vars'),
       require('postcss-nested-ancestors'),
       require('postcss-nested'),
       require('postcss-font-display')({ display: 'swap', replace: false }),
-      atImport(),
-      mqpacker({sort: true}),
-      combineDuplicates(),
-      discardDuplicates(),
       require('postcss-easing-gradients'),
+      require('postcss-responsive-type'),
+      require('postcss-combine-duplicated-selectors'),
+      require('postcss-discard-duplicates'),
+      require('stylefmt'),
+      mqpacker({sort: true}),
     ]))
-    .pipe(stylefmt())
+    .pipe(cssbeautify({
+        indent: '  ',
+        // openbrace: 'separate-line',
+        // autosemicolon: true
+    }))
     .pipe(gulp.dest('./src/css/compiled'))
     .pipe(postcss([
-      stylelint(),
-      pNormalize({forceImport: true}),
-      require('postcss-colormin'),
-      messages(),
-      autoprefixer(),
-      cssnano()
+      require('stylelint'),
+      require('postcss-normalize')({forceImport: true}),
+      require('postcss-at2x'),
+      require('postcss-animation'),
+      require('postcss-light-text'),
+      require('postcss-browser-reporter'),
+      require('autoprefixer'),
+      require('cssnano')
     ]))
     .pipe(rename({
       suffix: ".min"
