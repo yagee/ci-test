@@ -1,28 +1,19 @@
 image: node:latest
 
-stages:
-  - build
-  - run
-  # - test
-
 cache:
   paths:
-    - node_modules/
+   - node_modules/
 
-install_dependencies:
-  stage: build
+before_script:
+  - npm install
+
+stages:
+  - build_deploy
+
+build_&_deploy_app:
+  stage: build_deploy
+  only:
+   - master
   script:
-    - npm install
-  artifacts:
-    paths:
-      - node_modules/
-
-# testing_testing:
-#   stage: test
-#   script: npm test
-
-# before_script:
-#   - npm install
-#
-run:
-  script: "gulp"
+   # - gulp build -production
+   - gulp
