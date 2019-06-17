@@ -20,23 +20,23 @@ const cssbeautify = require('gulp-cssbeautify');
 gulp.task('scripts', function() {
   return gulp.src(['./src/js/*.js'])
     .pipe(uglify())
-    .pipe(gulp.dest('./build/js'))
+    .pipe(gulp.dest('./public/js'))
 });
 
 gulp.task('fonts', function () {
   return gulp.src('./src/fonts/**/*')
-    .pipe(gulp.dest('./build/fonts'));
+    .pipe(gulp.dest('./public/fonts'));
 });
 
 gulp.task('default', ['pretty', 'scripts', 'css', 'images-min', 'fonts', 'watch'], function () {
   browserSync({
-    server: './build',
+    server: './public',
     // startPath: "/branding",
     open: false,
     logFileChanges: false,
     notify: false
   });
-  gulp.watch(["./build/**/*.html", "./build/js/**/*"]).on('change', browserSync.reload);
+  gulp.watch(["./public/**/*.html", "./public/js/**/*"]).on('change', browserSync.reload);
 });
 
 gulp.task('stylefmt', function () {
@@ -110,7 +110,7 @@ gulp.task('css', ['stylefmt'], function () {
     .pipe(rename({
       suffix: ".min"
     }))
-    .pipe(gulp.dest('./build/css'))
+    .pipe(gulp.dest('./public/css'))
     .pipe(browserSync.stream());
 });
 
@@ -124,11 +124,11 @@ gulp.task('pug', function (){
     .pipe(pug({
       pretty: false
     }))
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('pretty', ['pug'], function() {
-  gulp.src('./build/*.html')
+  gulp.src('./public/*.html')
     .pipe(typograf({
       locale: ['ru', 'en-US'],
       htmlEntity: {
@@ -137,12 +137,12 @@ gulp.task('pretty', ['pug'], function() {
       }
     }))
     .pipe(prettify({indent_size: 2}))
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('images-clean', function () {
   return del([
-    './build/img'
+    './public/img'
   ]);
 });
 
@@ -155,7 +155,7 @@ gulp.task('images-min', ['images-clean'], function() {
     // ], {
       // verbose: true
     // }))
-    .pipe(gulp.dest('./build/img'));
+    .pipe(gulp.dest('./public/img'));
 });
 
 gulp.task('watch', function() {
