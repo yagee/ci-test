@@ -18,4 +18,4 @@ build_&_deploy_app:
    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
   artifacts:
     paths:
-      - public
+      - public/
