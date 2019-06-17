@@ -1,5 +1,27 @@
-before_script:
-  - npm install
+image: node:latest
 
-gulp:
-  script: "gulp"
+stages:
+  - build
+  # - test
+
+cache:
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+
+# testing_testing:
+#   stage: test
+#   script: npm test
+
+# before_script:
+#   - npm install
+#
+# gulp:
+#   script: "gulp"
