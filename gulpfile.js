@@ -28,6 +28,10 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest('./public/fonts'));
 });
 
+gulp.tast('build', ['pretty', 'scripts', 'css', 'images-min', 'fonts', 'watch'], function() {
+  console.log('BUILD SUCCESS');
+});
+
 gulp.task('default', ['pretty', 'scripts', 'css', 'images-min', 'fonts', 'watch'], function () {
   browserSync({
     server: './public',
