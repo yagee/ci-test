@@ -23,5 +23,5 @@ install_dependencies:
 # before_script:
 #   - npm install
 #
-# gulp:
-#   script: "gulp"
+gulp:
+  script: "gulp"
