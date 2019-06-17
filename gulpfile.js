@@ -28,7 +28,7 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest('./public/fonts'));
 });
 
-gulp.tast('build', ['pretty', 'scripts', 'css', 'images-min', 'fonts', 'watch'], function() {
+gulp.task('build', ['pretty', 'scripts', 'css', 'images-min', 'fonts'], function() {
   console.log('BUILD SUCCESS');
 });
 
