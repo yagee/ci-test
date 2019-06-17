@@ -41,11 +41,11 @@ gulp.task('default', ['pretty', 'scripts', 'css', 'images-min', 'fonts', 'watch'
 
 gulp.task('stylefmt', function () {
   return gulp.src('src/css/style.css')
-    .pipe(cssbeautify({
-        indent: '  ',
-        // openbrace: 'separate-line',
-        // autosemicolon: true
-    }))
+    // .pipe(cssbeautify({
+    //     indent: '  ',
+    //     // openbrace: 'separate-line',
+    //     // autosemicolon: true
+    // }))
     .pipe(postcss([
       require('stylefmt'),
       require('postcss-gradientfixer'),
@@ -54,7 +54,7 @@ gulp.task('stylefmt', function () {
       require('postcss-pseudo-element-colons'),
       require('postcss-unprefix'), // косяк с before
       // require('postcss-default-unit'),
-      require('css-declaration-sorter')({order: 'smacss'}),
+      // require('css-declaration-sorter')({order: 'smacss'}),
     ]))
     .pipe(gulp.dest('src/css'));
 });
@@ -80,21 +80,32 @@ gulp.task('css', ['stylefmt'], function () {
       require('stylefmt'),
       mqpacker({sort: true}),
     ]))
-    .pipe(cssbeautify({
-        indent: '  ',
-        // openbrace: 'separate-line',
-        // autosemicolon: true
-    }))
+    // .pipe(cssbeautify({
+    //     indent: '  ',
+    //     // openbrace: 'separate-line',
+    //     // autosemicolon: true
+    // }))
     .pipe(gulp.dest('./src/css/compiled'))
     .pipe(postcss([
       require('stylelint'),
       require('postcss-normalize')({forceImport: true}),
       require('postcss-at2x'),
+      require('postcss-list-style-safari-fix'),
+      require('postcss-momentum-scrolling'),
+      require('postcss-inline-svg')({
+        'path': './src/inline'
+      }),
       require('postcss-animation'),
       require('postcss-light-text'),
       require('postcss-browser-reporter'),
       require('autoprefixer'),
-      require('cssnano')
+      require('cssnano')({
+        preset: [
+          'default', {
+            reduceTransforms: false
+          }
+        ]
+      })
     ]))
     .pipe(rename({
       suffix: ".min"

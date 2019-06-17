@@ -15,6 +15,10 @@ body {
   padding: 0;
 }
 
+/* .temp {
+  background-image: svg-load('../img/close.svg');
+} */
+
 @keyframes show {
   from {
     opacity: 0;
@@ -166,11 +170,9 @@ body {
   .red .frame-1 .hero {
     width: 50%;
   }
-
   .red .frame-2 .hero {
     width: 50%;
   }
-
   .red .frame-2 .btn {
     width: 50%;
   }
@@ -180,7 +182,6 @@ body {
   .rotate {
     display: block;
   }
-
   .red {
     display: none;
   }

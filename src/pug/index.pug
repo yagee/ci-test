@@ -1,40 +1,11 @@
 extends layout.pug
 
 block local_vars
-  - var title = 'Главная'
+  - var title = 'Имя'
 
 block content
   //- include metrics.pug
   .rotate
     span Пожалуйста, поверните устройство
   .red(onclick="parent.postMessage('banner.redirect', '*')")
-    .frame-1
-      .lipstick
-        picture
-          source(src="img/red_1_768.png", srcset="img/red_1_768@2x.png 2x, img/red_1_768@3x.png 3x" media="all and (min-width: 768px)")
-          source(src="img/red_1_414.png", srcset="img/red_1_414@2x.png 2x, img/red_1_414@3x.png 3x" media="all and (min-width: 414px)")
-          source(src="img/red_1_375.png", srcset="img/red_1_375@2x.png 2x, img/red_1_375@3x.png 3x" media="all and (min-width: 375px)")
-          img(src="img/red_1_320.png", srcset="img/red_1_320@2x.png 2x, img/red_1_320@3x.png 3x", alt="")
-      .logo
-        img(src="img/logo.svg")
-      .hero
-        img(src="img/hero_1.svg")
-      .disclaimer
-        img(src="img/disclaimer.svg")
-    .frame-2
-      .lipstick
-        picture
-          source(src="img/red_2_768.png", srcset="img/red_2_768@2x.png 2x, img/red_2_768@3x.png 3x" media="all and (min-width: 768px)")
-          source(src="img/red_2_414.png", srcset="img/red_2_414@2x.png 2x, img/red_2_414@3x.png 3x" media="all and (min-width: 414px)")
-          source(src="img/red_2_375.png", srcset="img/red_2_375@2x.png 2x, img/red_2_375@3x.png 3x" media="all and (min-width: 375px)")
-          img(src="img/red_2_320.png", srcset="img/red_2_320@2x.png 2x, img/red_2_320@3x.png 3x", alt="")
-      .hero
-        img(src="img/hero_february.svg")
-      .btn
-        img(src="img/btn_txt.svg")
-      .disclaimer
-        img(src="img/disclaimer.svg")
-          
-    //- h1 !{h1_text}
-    //- p #{p_text}
-        
+    p qwe
