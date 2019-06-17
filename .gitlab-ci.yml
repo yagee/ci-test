@@ -11,7 +11,7 @@ stages:
   - build
   - deploy
 
-build_&_deploy_app:
+build:
   stage: build
   only:
    - master
@@ -23,8 +23,8 @@ build_&_deploy_app:
 
 pages:
   stage: deploy
-    script:
-      - echo 'Nothing to do...'
+  script:
+    - echo 'Nothing to do...'
   artifacts:
     paths:
     - public/
