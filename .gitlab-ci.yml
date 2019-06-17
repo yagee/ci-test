@@ -1,5 +1,5 @@
 before_script:
-  - yarn install
+  - npm install
 
 gulp:
   script: "gulp"
