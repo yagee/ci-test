@@ -8,10 +8,11 @@ before_script:
   - npm install
 
 stages:
-  - build_deploy
+  - build
+  - deploy
 
 build_&_deploy_app:
-  stage: build_deploy
+  stage: build
   only:
    - master
   script:
@@ -19,3 +20,13 @@ build_&_deploy_app:
   artifacts:
     paths:
       - public/
+
+pages:
+  stage: deploy
+    script:
+    - echo 'Nothing to do...'
+  artifacts:
+    paths:
+    - public/
+  only:
+    - master
