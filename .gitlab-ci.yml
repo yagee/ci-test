@@ -16,3 +16,6 @@ build_&_deploy_app:
    - master
   script:
    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
+  artifacts:
+    paths:
+      - public
