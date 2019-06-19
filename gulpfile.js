@@ -53,9 +53,9 @@ gulp.task('stylefmt', function () {
     .pipe(postcss([
       require('stylefmt'),
       require('postcss-gradientfixer'),
-      require('postcss-pseudo-content-insert'),
-      require('postcss-pseudo-element-cases'),
-      require('postcss-pseudo-element-colons'),
+      // require('postcss-pseudo-content-insert'),
+      // require('postcss-pseudo-element-cases'),
+      // require('postcss-pseudo-element-colons'),
       require('postcss-unprefix'), // косяк с before
       // require('postcss-default-unit'),
       // require('css-declaration-sorter')({order: 'smacss'}),
