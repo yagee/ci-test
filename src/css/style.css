@@ -179,11 +179,3 @@ body {
     }
   }
 }
-
-*::after {
-  content: '';
-}
-
-*::before {
-  content: '';
-}
