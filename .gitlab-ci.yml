@@ -19,7 +19,7 @@ build:
    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
   artifacts:
     paths:
-      - docs/
+      - public/
 
 pages:
   stage: deploy
@@ -27,6 +27,6 @@ pages:
     - echo 'Nothing to do...'
   artifacts:
     paths:
-    - docs/
+    - public/
   only:
     - master
