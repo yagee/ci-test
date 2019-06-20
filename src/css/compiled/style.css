@@ -158,14 +158,6 @@ body {
   width: 100%;
 }
 
-*::after {
-  content: '';
-}
-
-*::before {
-  content: '';
-}
-
 @media (min-width: 768px) {
   .red .frame-1 .hero {
     width: 50%;
