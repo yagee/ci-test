@@ -20,12 +20,12 @@ const cssbeautify = require('gulp-cssbeautify');
 gulp.task('scripts', function() {
   return gulp.src(['./src/js/*.js'])
     .pipe(uglify())
-    .pipe(gulp.dest('./docs/js'))
+    .pipe(gulp.dest('./public/js'))
 });
 
 gulp.task('fonts', function () {
   return gulp.src('./src/fonts/**/*')
-    .pipe(gulp.dest('./docs/fonts'));
+    .pipe(gulp.dest('./public/fonts'));
 });
 
 gulp.task('build', ['pretty', 'scripts', 'css', 'images-min', 'fonts'], function() {
@@ -34,13 +34,13 @@ gulp.task('build', ['pretty', 'scripts', 'css', 'images-min', 'fonts'], function
 
 gulp.task('default', ['pretty', 'scripts', 'css', 'images-min', 'fonts', 'watch'], function () {
   browserSync({
-    server: './docs',
+    server: './public',
     // startPath: "/branding",
     open: false,
     logFileChanges: false,
     notify: false
   });
-  gulp.watch(["./docs/**/*.html", "./docs/js/**/*"]).on('change', browserSync.reload);
+  gulp.watch(["./public/**/*.html", "./public/js/**/*"]).on('change', browserSync.reload);
 });
 
 gulp.task('stylefmt', function () {
@@ -114,7 +114,7 @@ gulp.task('css', ['stylefmt'], function () {
     .pipe(rename({
       suffix: ".min"
     }))
-    .pipe(gulp.dest('./docs/css'))
+    .pipe(gulp.dest('./public/css'))
     .pipe(browserSync.stream());
 });
 
@@ -128,11 +128,11 @@ gulp.task('pug', function (){
     .pipe(pug({
       pretty: false
     }))
-    .pipe(gulp.dest('./docs'));
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('pretty', ['pug'], function() {
-  gulp.src('./docs/*.html')
+  gulp.src('./public/*.html')
     .pipe(typograf({
       locale: ['ru', 'en-US'],
       htmlEntity: {
@@ -141,12 +141,12 @@ gulp.task('pretty', ['pug'], function() {
       }
     }))
     .pipe(prettify({indent_size: 2}))
-    .pipe(gulp.dest('./docs'));
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('images-clean', function () {
   return del([
-    './docs/img'
+    './public/img'
   ]);
 });
 
@@ -159,7 +159,7 @@ gulp.task('images-min', ['images-clean'], function() {
     // ], {
       // verbose: true
     // }))
-    .pipe(gulp.dest('./docs/img'));
+    .pipe(gulp.dest('./public/img'));
 });
 
 gulp.task('watch', function() {

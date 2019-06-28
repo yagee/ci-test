@@ -11,32 +11,9 @@ before_script:
   # https://gitlab.com/yagee/ci-test.git
 
 stages:
-  # - github
   - build
   - deploy
-
-# github:
-#   stage: github
-#   only:
-#    - master
-#   script:
-#    - git remote set-url origin https://yagee:$CI_PUSH_TOKEN@gitlab.com/yagee/ci-test.git
-#    - git config --global user.email 'general@ya.ru'
-#    - git config --global user.name 'yagee'
-#    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
-#    - git checkout -B master
-#    - git add .
-#    # - change files
-#    - git commit -m '[skip ci] commit from CI runner'
-#    - git remote show origin
-#    # - git push --follow-tags origin master
-#    - git push -u origin master
-#
-#    # - git checkout -B branch
-#    # # - change files
-#    # - git add .
-#    # - git commit -m '[skip ci] commit from CI runner'
-#    # - git push origin branch
+  - github
 
 build:
   stage: build
@@ -60,3 +37,30 @@ pages:
       - public/
   only:
     - master
+
+github:
+  stage: github
+  only:
+   - master
+  script:
+   - git remote set-url origin https://yagee:$CI_PUSH_TOKEN@gitlab.com/yagee/ci-test.git
+   - git config --global user.email 'general@ya.ru'
+   - git config --global user.name 'yagee'
+   - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
+
+   - rm -rf docs
+   - mkdir docs
+   - cp -a public/ docs/
+
+   - git checkout -B master
+   - git add .
+   # - change files
+   - git commit -m '[skip ci] commit from CI runner'
+   # - git push --follow-tags origin master
+   - git push -u origin master
+
+   # - git checkout -B branch
+   # # - change files
+   # - git add .
+   # - git commit -m '[skip ci] commit from CI runner'
+   # - git push origin branch
