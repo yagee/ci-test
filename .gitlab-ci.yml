@@ -23,6 +23,7 @@ build:
   script:
    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
    - git checkout -B branch
+   - git add .
    # - change files
    - git commit -m '[skip ci] commit from CI runner'
    - git push --follow-tags origin branch
