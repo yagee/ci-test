@@ -22,11 +22,15 @@ build:
    - master
   script:
    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
-   # - git checkout -B branch
-   # - change files
-   - git add .
+   - git checkout -B branch
+   - change files
    - git commit -m '[skip ci] commit from CI runner'
-   - git push origin master
+   - git push --follow-tags origin branch
+   # - git checkout -B branch
+   # # - change files
+   # - git add .
+   # - git commit -m '[skip ci] commit from CI runner'
+   # - git push origin branch
   artifacts:
     paths:
       - public/
