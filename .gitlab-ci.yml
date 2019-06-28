@@ -19,27 +19,10 @@ build:
   only:
    - master
   script:
-   - git remote set-url origin https://yagee:$CI_PUSH_TOKEN@gitlab.com/yagee/ci-test.git
-   - git config --global user.email 'general@ya.ru'
-   - git config --global user.name 'yagee'
    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
-   - git checkout -B master
-   - git add .
-   # - change files
-   - git commit -m '[skip ci] commit from CI runner'
-   - git remote show origin
-   # - git push --follow-tags origin master
-   - git push -u origin master
-
-   # - git checkout -B branch
-   # # - change files
-   # - git add .
-   # - git commit -m '[skip ci] commit from CI runner'
-   # - git push origin branch
   artifacts:
     paths:
       - public/
-      - docs/
 
 pages:
   stage: deploy
@@ -47,6 +30,6 @@ pages:
     - echo 'Nothing to do...'
   artifacts:
     paths:
-      - public/
+    - public/
   only:
     - master
