@@ -39,7 +39,6 @@ build:
   artifacts:
     paths:
       - public/
-      - docs/
 
 pages:
   stage: deploy
@@ -48,6 +47,5 @@ pages:
   artifacts:
     paths:
       - public/
-      - docs/
   only:
     - master
