@@ -23,7 +23,7 @@ build:
    - master
   script:
    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
-   - git checkout -B master
+   # - git checkout -B master
    - git add .
    # - change files
    - git commit -m '[skip ci] commit from CI runner'
@@ -39,7 +39,6 @@ build:
   artifacts:
     paths:
       - public/
-      - docs/
 
 pages:
   stage: deploy
@@ -48,6 +47,5 @@ pages:
   artifacts:
     paths:
     - public/
-    - docs/
   only:
     - master
