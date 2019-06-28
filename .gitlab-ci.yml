@@ -8,9 +8,10 @@ cache:
 #   - npm install
 
 before_script:
-  - git remote set-url origin https://yagee:$CI_PUSH_TOKEN@gitlab.com/ci-test.git
+  - git remote set-url origin https://yagee:$CI_PUSH_TOKEN@gitlab.com/yagee/ci-test.git
   - git config --global user.email 'general@ya.ru'
   - git config --global user.name 'yagee'
+  # https://gitlab.com/yagee/ci-test.git
 
 stages:
   - build
@@ -27,7 +28,9 @@ build:
    # - change files
    - git commit -m '[skip ci] commit from CI runner'
    - git remote show origin
-   - git push --follow-tags origin master
+   # - git push --follow-tags origin master
+   - git push -u origin master
+
    # - git checkout -B branch
    # # - change files
    # - git add .
