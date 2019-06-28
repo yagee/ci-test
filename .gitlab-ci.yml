@@ -8,7 +8,7 @@ cache:
 #   - npm install
 
 before_script:
-  - git remote set-url origin https://yagee:$CI_PUSH_TOKEN@gitlab.com/ci-test.git
+  - git remote set-url origin https://yagee:$CI_PUSH_TOKEN@gitlab.com/yagee/ci-test.git
   - git config --global user.email 'general@ya.ru'
   - git config --global user.name 'yagee'
 
@@ -22,7 +22,7 @@ build:
    - master
   script:
    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
-   - git checkout -B master
+   # - git checkout -B master
    - git add .
    # - change files
    - git commit -m '[skip ci] commit from CI runner'
