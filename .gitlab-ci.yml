@@ -9,7 +9,7 @@ cache:
 
 stages:
   - build
-  # - deploy
+  - deploy
 
 build:
   stage: build
@@ -22,12 +22,13 @@ build:
       - public/
       - docs/
 
-# pages:
-#   stage: deploy
-#   script:
-#     - echo 'Nothing to do...'
-#   artifacts:
-#     paths:
-#     - public/
-#   only:
-#     - master
+pages:
+  stage: deploy
+  script:
+    - echo 'Nothing to do...'
+  artifacts:
+    paths:
+    - public/
+    - docs/
+  only:
+    - master
