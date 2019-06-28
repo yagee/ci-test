@@ -8,20 +8,20 @@ cache:
 #   - npm install
 
 before_script:
-  - git remote set-url origin https://yagee:$CI_PUSH_TOKEN@gitlab.com/yagee/ci-test.git
-  - git config --global user.email 'general@ya.ru'
-  - git config --global user.name 'yagee'
   # https://gitlab.com/yagee/ci-test.git
 
 stages:
   - build
-  # - deploy
+  - deploy
 
 build:
   stage: build
   only:
    - master
   script:
+   - git remote set-url origin https://yagee:$CI_PUSH_TOKEN@gitlab.com/yagee/ci-test.git
+   - git config --global user.email 'general@ya.ru'
+   - git config --global user.name 'yagee'
    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
    - git checkout -B master
    - git add .
@@ -41,12 +41,12 @@ build:
       - public/
       - docs/
 
-# pages:
-#   stage: deploy
-#   script:
-#     - echo 'Nothing to do...'
-#   artifacts:
-#     paths:
-#       - public/
-#   only:
-#     - master
+pages:
+  stage: deploy
+  script:
+    - echo 'Nothing to do...'
+  artifacts:
+    paths:
+      - public/
+  only:
+    - master
