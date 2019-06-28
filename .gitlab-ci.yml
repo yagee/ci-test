@@ -15,7 +15,7 @@ before_script:
 
 stages:
   - build
-  # - deploy
+  - deploy
 
 build:
   stage: build
@@ -39,6 +39,7 @@ build:
   artifacts:
     paths:
       - public/
+      - docs/
 
 pages:
   stage: deploy
@@ -46,6 +47,7 @@ pages:
     - echo 'Nothing to do...'
   artifacts:
     paths:
-    - public/
+      - public/
+      - docs/
   only:
     - master
