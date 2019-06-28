@@ -44,9 +44,9 @@ build:
    - master
   script:
    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
-   - rm -rf ./public
-   - mkdir ./public
-   - cp -a ./build/ ./public/
+   - rm -rf public
+   - mkdir public
+   - cp -a docs/ public/
   artifacts:
     paths:
       - public/
