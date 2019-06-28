@@ -50,7 +50,7 @@ github:
 
    - rm -rf docs
    - mkdir docs
-   - cp -a public/ docs/
+   - cp -avr public/. docs/
 
    - git checkout -B master
    - git add .
