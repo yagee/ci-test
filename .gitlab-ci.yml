@@ -4,12 +4,12 @@ cache:
   paths:
    - node_modules/
 
-before_script:
-  - npm install
+# before_script:
+#   - npm install
 
 stages:
   - build
-  - deploy
+  # - deploy
 
 build:
   stage: build
@@ -20,13 +20,14 @@ build:
   artifacts:
     paths:
       - public/
+      - docs/
 
-pages:
-  stage: deploy
-  script:
-    - echo 'Nothing to do...'
-  artifacts:
-    paths:
-    - public/
-  only:
-    - master
+# pages:
+#   stage: deploy
+#   script:
+#     - echo 'Nothing to do...'
+#   artifacts:
+#     paths:
+#     - public/
+#   only:
+#     - master
