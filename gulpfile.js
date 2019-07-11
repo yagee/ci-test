@@ -23,19 +23,24 @@ gulp.task('scripts', function() {
   return gulp.src(['./src/js/*.js'])
     .pipe(uglify())
     .pipe(gulp.dest('./public/js'))
+    .pipe(gulp.dest('./docs/js'))
 });
 
 gulp.task('fonts', function () {
   return gulp.src('./src/fonts/**/*')
-    .pipe(gulp.dest('./public/fonts'));
+    .pipe(gulp.dest('./public/fonts'))
+    .pipe(gulp.dest('./docs/fonts'));
 });
 
 gulp.task('build', ['pretty', 'scripts', 'css', 'images-min', 'fonts'], function() {
   console.log('BUILD SUCCESS');
 });
 
-gulp.task('default', ['pretty', 'scripts', 'css', 'images-min', 'fonts', 'watch'], function () {
+gulp.task('cname', function() {
   fs.writeFile('docs/CNAME', "megabulka.ru", function(err) {});
+});
+
+gulp.task('default', ['cname', 'pretty', 'scripts', 'css', 'images-min', 'fonts', 'watch'], function () {
   browserSync({
     server: './public',
     // startPath: "/branding",
@@ -118,6 +123,7 @@ gulp.task('css', ['stylefmt'], function () {
       suffix: ".min"
     }))
     .pipe(gulp.dest('./public/css'))
+    .pipe(gulp.dest('./docs/css'))
     .pipe(browserSync.stream());
 });
 
@@ -131,7 +137,8 @@ gulp.task('pug', function (){
     .pipe(pug({
       pretty: false
     }))
-    .pipe(gulp.dest('./public'));
+    .pipe(gulp.dest('./public'))
+    .pipe(gulp.dest('./docs'));
 });
 
 gulp.task('pretty', ['pug'], function() {
@@ -144,7 +151,8 @@ gulp.task('pretty', ['pug'], function() {
       }
     }))
     .pipe(prettify({indent_size: 2}))
-    .pipe(gulp.dest('./public'));
+    .pipe(gulp.dest('./public'))
+    .pipe(gulp.dest('./docs'));
 });
 
 gulp.task('images-clean', function () {
@@ -162,7 +170,8 @@ gulp.task('images-min', ['images-clean'], function() {
     // ], {
       // verbose: true
     // }))
-    .pipe(gulp.dest('./public/img'));
+    .pipe(gulp.dest('./public/img'))
+    .pipe(gulp.dest('./docs/img'));
 });
 
 gulp.task('watch', function() {
