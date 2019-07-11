@@ -19,6 +19,7 @@ body {
   background-image: svg-load('../img/close.svg');
 } */
 
+/*
 @keyframes show {
   from {
     opacity: 0;
@@ -178,4 +179,4 @@ body {
       }
     }
   }
-}
+} */

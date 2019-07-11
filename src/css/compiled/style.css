@@ -19,6 +19,7 @@ body {
   background-image: svg-load('../img/close.svg');
 } */
 
+/*
 @keyframes show {
   from {
     opacity: 0;
@@ -35,17 +36,21 @@ body {
   width: 100%;
   height: 100%;
   background: #b60f08;
-}
 
-.rotate span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-family: 'Myriad Pro', Arial, sans-serif;
-  font-size: 14px;
-  text-align: center;
+  @media screen and (min-aspect-ratio: 12/9) {
+    display: block;
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-family: 'Myriad Pro', Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+  }
 }
 
 .button {
@@ -53,128 +58,125 @@ body {
   border-radius: 10px;
   background-color: black;
   text-align: center;
-}
 
-.button--text {
-  color: white;
-}
+  &--text {
+    color: white;
+  }
 
-.button.button__white {
-  background-color: white;
-}
+  &&__white {
+    background-color: white;
 
-.button.button__white .button--text {
-  color: black;
+    ^&--text {
+      color: black;
+    }
+  }
 }
 
 .red {
   height: 100%;
-}
 
-.red .frame-1 {
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  background-color: #b60f08;
-}
-
-.red .frame-1 .logo {
-  width: 82%;
-  padding-bottom: 8%;
-}
-
-.red .frame-1 .logo img {
-  width: 100%;
-}
-
-.red .frame-1 .hero {
-  width: 85%;
-}
-
-.red .frame-1 .hero img {
-  width: 100%;
-}
-
-.red .frame-2 {
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  background-color: #b60f08;
-  animation-name: show;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  animation-delay: 2s;
-  opacity: 0;
-}
-
-.red .frame-2 .hero {
-  width: 78%;
-}
-
-.red .frame-2 .hero img {
-  width: 100%;
-}
-
-.red .frame-2 .btn {
-  width: 80%;
-  padding-top: 5%;
-  padding-bottom: 3.5%;
-  border: 1px solid #ecb9c6;
-  border-radius: 5px;
-  background: linear-gradient(to bottom, hsl(345, 54.55%, 91.37%), hsl(345.01, 54.67%, 91.04%) 5.79%, hsl(345.03, 54.88%, 90.47%) 10.88%, hsl(345.03, 55.14%, 89.72%) 15.63%, hsl(345.03, 55.43%, 88.83%) 20.37%, hsl(345.01, 55.74%, 87.84%) 25.46%, hsl(344.97, 56.06%, 86.79%) 31.25%, hsl(344.92, 56.37%, 85.75%) 38.08%, hsl(344.86, 56.66%, 84.77%) 46.3%, hsl(344.81, 56.92%, 83.89%) 56.25%, hsl(344.76, 57.12%, 83.19%) 68.29%, hsl(344.72, 57.25%, 82.72%) 82.75%, hsl(344.71, 57.3%, 82.55%));
-  box-shadow: inset 0 1px 1px 1px #faedf1;
-  text-align: center;
-}
-
-.red .frame-2 .btn img {
-  width: 80%;
-}
-
-.red .disclaimer {
-  width: 93%;
-}
-
-.red .disclaimer img {
-  width: 100%;
-}
-
-.red .lipstick {
-  padding-top: 10%;
-}
-
-.red .lipstick picture img {
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .red .frame-1 .hero {
-    width: 50%;
-  }
-  .red .frame-2 .hero {
-    width: 50%;
-  }
-  .red .frame-2 .btn {
-    width: 50%;
-  }
-}
-
-@media screen and (min-aspect-ratio: 12/9) {
-  .rotate {
-    display: block;
-  }
-  .red {
+  @media screen and (min-aspect-ratio: 12/9) {
     display: none;
   }
-}
+
+  .frame-1 {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background-color: #b60f08;
+
+    .logo {
+      width: 82%;
+      padding-bottom: 8%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .hero {
+      width: 85%;
+
+      @media (min-width: 768px) {
+        width: 50%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .frame-2 {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background-color: #b60f08;
+    animation-name: show;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    opacity: 0;
+
+    .hero {
+      width: 78%;
+
+      @media (min-width: 768px) {
+        width: 50%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .btn {
+      width: 80%;
+      padding-top: 5%;
+      padding-bottom: 3.5%;
+      border: 1px solid #ecb9c6;
+      border-radius: 5px;
+      background: linear-gradient(to bottom, #f5dde3, ease, #ecb9c6);
+      box-shadow: inset 0 1px 1px 1px #faedf1;
+      text-align: center;
+
+      @media (min-width: 768px) {
+        width: 50%;
+      }
+
+      img {
+        width: 80%;
+      }
+    }
+  }
+
+  .disclaimer {
+    width: 93%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .lipstick {
+    padding-top: 10%;
+
+    picture {
+      img {
+        width: 100%;
+      }
+    }
+  }
+} */

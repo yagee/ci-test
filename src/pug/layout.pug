@@ -7,9 +7,9 @@ html(lang="ru")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(name="format-detection", content="telephone=no")
     if title
-      title Banner - !{title}
+      title !{title}
     if meta_description
-      meta(name="description", content="!{meta_description}")
+      meta(name="description", content=meta_description)
     link(rel="stylesheet" href="css/style.min.css")
     //- script.
       console.log('test');
