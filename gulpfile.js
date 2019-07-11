@@ -17,6 +17,8 @@ const uglify = require('gulp-uglify');
 
 const cssbeautify = require('gulp-cssbeautify');
 
+const fs = require('fs');
+
 gulp.task('scripts', function() {
   return gulp.src(['./src/js/*.js'])
     .pipe(uglify())
@@ -33,6 +35,7 @@ gulp.task('build', ['pretty', 'scripts', 'css', 'images-min', 'fonts'], function
 });
 
 gulp.task('default', ['pretty', 'scripts', 'css', 'images-min', 'fonts', 'watch'], function () {
+  fs.writeFile('docs/CNAME', "megabulka.ru", function(err) {});
   browserSync({
     server: './public',
     // startPath: "/branding",
