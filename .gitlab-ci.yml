@@ -50,6 +50,7 @@ github:
 
    - rm -rf docs
    - mkdir docs
+   - echo 'megabulka.ru' > docs/CNAME
    - cp -avr public/. docs/
 
    - git checkout -B master
