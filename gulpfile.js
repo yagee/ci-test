@@ -32,7 +32,7 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest('./docs/fonts'));
 });
 
-gulp.task('build', ['pretty', 'scripts', 'css', 'images-min', 'fonts'], function() {
+gulp.task('build', ['cname', 'pretty', 'scripts', 'css', 'images-min', 'fonts'], function() {
   console.log('BUILD SUCCESS');
 });
 
