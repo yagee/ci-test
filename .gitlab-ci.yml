@@ -30,6 +30,10 @@ build:
       - public/
 
 pages:
+  cache:
+    key: my-super-cache
+    paths:
+      - node_modules
   stage: deploy
   script:
     - echo 'Nothing to do...'
@@ -40,6 +44,10 @@ pages:
     - master
 
 github:
+  cache:
+    key: my-super-cache
+    paths:
+      - node_modules
   stage: github
   only:
    - master
@@ -47,6 +55,7 @@ github:
    - git remote set-url origin https://yagee:$CI_PUSH_TOKEN@gitlab.com/yagee/ci-test.git
    - git config --global user.email 'general@ya.ru'
    - git config --global user.name 'yagee'
+   - npm install
    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
 
    - rm -rf docs
