@@ -4,8 +4,8 @@ image: node:8.12.0
 #   paths:
 #    - node_modules/
 
-before_script:
-  - npm install
+# before_script:
+#   - npm install
 
 before_script:
   # https://gitlab.com/yagee/ci-test.git
@@ -20,6 +20,7 @@ build:
   only:
    - master
   script:
+   - npm install
    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
    # - rm -rf public
    # - mkdir public
